@@ -75,18 +75,18 @@ resource "libvirt_domain" "${!VM_NAME}" {
     name = "${!VM_NAME}"
     memory = "${!VM_MEMORY}"
     vcpu = "${!VM_VCPUS}"
-    machine = "pc-i440fx-rhel7.6.0"
+    # machine = "pc-i440fx-6.2"
 
 EOF
     if [[ $(eval echo $(echo '$'\{VM${i}_NESTED\})) != Y ]]; then
-    cat <<EOF >>${TMP_DIR}/${HCL_FILE}
+      cat <<EOF >>${TMP_DIR}/${HCL_FILE}
     cpu {
            mode = ""
     }
 
 EOF
     else
-    cat <<EOF >>${TMP_DIR}/${HCL_FILE}
+      cat <<EOF >>${TMP_DIR}/${HCL_FILE}
     cpu {
            mode = "host-passthrough"
     }
@@ -210,6 +210,18 @@ chpasswd:
   list: |
      student:SEDhZthtQdbo/+7TfYc5KvfGduWg/VjOto5oFDdfCCY=
   expire: false
+
+package_update: true
+packages:
+  - qemu-guest-agent
+  - neofetch
+
+runcmd:
+  - systemctl enable --now qemu-guest-agent.service
+  - |
+    echo "" >> /etc/hosts
+    echo "########## Generate from cloudinit ##########" >> /etc/hosts
+    echo "$(hostname -i | awk '{print $1}') ${!VM_NAME}" >> /etc/hosts
 EOF
       else
         cat <<EOF >${TMP_DIR}/cloudinit${i}.cfg
@@ -232,6 +244,18 @@ chpasswd:
   list: |
      student:SEDhZthtQdbo/+7TfYc5KvfGduWg/VjOto5oFDdfCCY=
   expire: false
+
+package_update: true
+packages:
+  - qemu-guest-agent
+  - neofetch
+
+runcmd:
+  - systemctl enable --now qemu-guest-agent.service
+  - |
+    echo "" >> /etc/hosts
+    echo "########## Generate from cloudinit ##########" >> /etc/hosts
+    echo "$(hostname -i | awk '{print $1}') ${!VM_NAME}" >> /etc/hosts
 EOF
       fi
 
@@ -328,6 +352,18 @@ chpasswd:
   list: |
      student:SEDhZthtQdbo/+7TfYc5KvfGduWg/VjOto5oFDdfCCY=
   expire: false
+
+package_update: true
+packages:
+  - qemu-guest-agent
+  - neofetch
+
+runcmd:
+  - systemctl enable --now qemu-guest-agent.service
+  - |
+    echo "" >> /etc/hosts
+    echo "########## Generate from cloudinit ##########" >> /etc/hosts
+    echo "$(hostname -i | awk '{print $1}') ${!VM_NAME}" >> /etc/hosts
 EOF
       else
         cat <<EOF >${TMP_DIR}/cloudinit${i}.cfg
@@ -350,6 +386,18 @@ chpasswd:
   list: |
      student:SEDhZthtQdbo/+7TfYc5KvfGduWg/VjOto5oFDdfCCY=
   expire: false
+
+package_update: true
+packages:
+  - qemu-guest-agent
+  - neofetch
+
+runcmd:
+  - systemctl enable --now qemu-guest-agent.service
+  - |
+    echo "" >> /etc/hosts
+    echo "########## Generate from cloudinit ##########" >> /etc/hosts
+    echo "$(hostname -i | awk '{print $1}') ${!VM_NAME}" >> /etc/hosts
 EOF
       fi
 
