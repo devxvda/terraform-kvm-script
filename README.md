@@ -128,10 +128,10 @@ Note: Only works on btech lab
 
 ```bash
 # Create pool directory
-sudo mkdir -p /data/isos/
+mkdir -p ~/data/isos/
 
 # Create pool
-virsh pool-define-as --name isos --type dir --target /data/isos/
+virsh pool-define-as --name isos --type dir --target ~/data/isos/
 
 # Start pool
 virsh pool-start isos
@@ -148,10 +148,10 @@ virsh pool-info isos
 
 ```bash
 # Create pool directory
-sudo mkdir -p /data/vms/
+mkdir -p ~/data/vms/
 
 # Create pool
-virsh pool-define-as --name vms --type dir --target /data/vms/
+virsh pool-define-as --name vms --type dir --target ~/data/vms/
 
 # Start pool
 virsh pool-start vms
@@ -163,6 +163,18 @@ virsh pool-autostart vms
 virsh pool-list --all
 virsh pool-info vms
 ```
+
+### [Ubuntu Only] Add storage pool directory to Apparmor
+
+```bash
+sudo vim /etc/apparmor.d/libvirt/TEMPLATE.qemu
+```
+```vim
+# Add the following line to section "profile LIBVIRT_TEMPLATE flags=(attach_disconnected)"
+~/data/vms/ rwk,
+~/data/isos/ rwk,
+```
+
 
 ### Create Cloud Image
 
