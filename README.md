@@ -234,7 +234,8 @@ CONSOLE: vnc
 
 ```bash
 # Generate Terraform files
-tfgen.sh demo-dir vm-demo.txt
+chmod +x tfgen.sh
+./tfgen.sh demo-dir vm-demo.txt
 
 # Terraform init
 cd demo-dir
