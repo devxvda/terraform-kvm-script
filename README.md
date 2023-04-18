@@ -13,7 +13,7 @@ Terraform libvirt provider binaries prebuilt include in this repository. The ver
 
 ```bash
 # Clone repo
-git clone
+git clone https://github.com/Script47ph/terraform-kvm-script.git && cd terraform-kvm-script
 
 # Create libvirt provider directory
 mkdir -p ~/.local/share/terraform/plugins/registry.terraform.io/dmacvicar/libvirt/0.7.1/linux_amd64
