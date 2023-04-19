@@ -221,7 +221,7 @@ runcmd:
   - |
     echo "" >> /etc/hosts
     echo "########## Generate from cloudinit ##########" >> /etc/hosts
-    echo "\$(hostname -i | awk '{print \$1}') ${!VM_NAME}" >> /etc/hosts
+    echo "\$(hostname -I | awk '{print \$1}') ${!VM_NAME}" >> /etc/hosts
 EOF
       else
         cat <<EOF >${TMP_DIR}/cloudinit${i}.cfg
@@ -255,7 +255,7 @@ runcmd:
   - |
     echo "" >> /etc/hosts
     echo "########## Generate from cloudinit ##########" >> /etc/hosts
-    echo "\$(hostname -i | awk '{print \$1}') ${!VM_NAME}" >> /etc/hosts
+    echo "\$(hostname -I | awk '{print \$1}') ${!VM_NAME}" >> /etc/hosts
 EOF
       fi
 
@@ -363,7 +363,7 @@ runcmd:
   - |
     echo "" >> /etc/hosts
     echo "########## Generate from cloudinit ##########" >> /etc/hosts
-    echo "\$(hostname -i | awk '{print \$1}') ${!VM_NAME}" >> /etc/hosts
+    echo "\$(hostname -I | awk '{print \$1}') ${!VM_NAME}" >> /etc/hosts
 EOF
       else
         cat <<EOF >${TMP_DIR}/cloudinit${i}.cfg
@@ -397,7 +397,7 @@ runcmd:
   - |
     echo "" >> /etc/hosts
     echo "########## Generate from cloudinit ##########" >> /etc/hosts
-    echo "\$(hostname -i | awk '{print \$1}') ${!VM_NAME}" >> /etc/hosts
+    echo "\$(hostname -I | awk '{print \$1}') ${!VM_NAME}" >> /etc/hosts
 EOF
       fi
 
