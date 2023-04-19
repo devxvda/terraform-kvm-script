@@ -302,7 +302,7 @@ EOF
         fi
       done
     fi
-    if [[ ${!VM_OS} = $(echo ${!VM_OS} | egrep -i -h "ubuntu|trusty|xenial|bionic|focal") ]]; then
+    if [[ ${!VM_OS} = $(echo ${!VM_OS} | egrep -i -h "ubuntu|trusty|xenial|bionic|focal|jammy") ]]; then
       if grep -q LAB ${ENV_FILE}; then
         cat <<EOF >${TMP_DIR}/cloudinit${i}.cfg
 #cloud-config
