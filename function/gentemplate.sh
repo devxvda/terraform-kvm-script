@@ -162,7 +162,7 @@ EOF
 
 EOF
     TOTAL_KEY=$(awk "/LAB/" RS= ${ENV_FILE} | grep PUBKEY | wc -l)
-    if [[ ${!VM_OS} = $(echo ${!VM_OS} | egrep -i -h "centos|redhat|rocky") ]]; then
+    if [[ ${!VM_OS} = $(echo ${!VM_OS} | egrep -i -h "centos|redhat|rocky|alma") ]]; then
       if grep -q LAB ${ENV_FILE}; then
         cat <<EOF >${TMP_DIR}/cloudinit${i}.cfg
 #cloud-config
@@ -211,12 +211,10 @@ chpasswd:
      student:SEDhZthtQdbo/+7TfYc5KvfGduWg/VjOto5oFDdfCCY=
   expire: false
 
-package_update: true
-packages:
-  - qemu-guest-agent
-  - neofetch
-
 runcmd:
+  - dnf repolist
+  - dnf install -y epel-release
+  - dnf install -y qemu-guest-agent neofetch
   - systemctl enable --now qemu-guest-agent.service
   - |
     echo "" >> /etc/hosts
