@@ -23,6 +23,7 @@ mv libvirt-provider/terraform-provider-libvirt ~/.local/share/terraform/plugins/
 
 # Add execute permission
 chmod +x ~/.local/share/terraform/plugins/registry.terraform.io/dmacvicar/libvirt/0.7.1/linux_amd64/terraform-provider-libvirt
+chmod +x tfgen.sh
 ```
 
 ### New feature:
