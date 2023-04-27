@@ -183,7 +183,7 @@ sudo vim /etc/apparmor.d/libvirt/TEMPLATE.qemu
 
 ```bash
 # Download cloud image
-wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img -O /data/isos/template-focal.img
+wget https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img -O ~/data/isos/template-focal.img
 
 # Refresh pool
 virsh pool-refresh isos
