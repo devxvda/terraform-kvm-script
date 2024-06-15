@@ -271,7 +271,7 @@ config:
         netmask: 255.255.255.0  
         gateway: $(eval echo \${!VM_IFACE_IP${y}} | cut -d '.' -f-3).1
         dns_nameservers:
-          - 8.8.8.8
+          - 1.1.1.1
         routes:
             - network: 0.0.0.0
               netmask: 0.0.0.0
@@ -412,7 +412,7 @@ ethernets:
       - $(eval echo \${!VM_IFACE_IP${y}})/24
     gateway4: $(eval echo \${!VM_IFACE_IP${y}} | cut -d '.' -f-3).1
     nameservers:
-      addresses: [8.8.8.8]
+      addresses: [1.1.1.1]
 EOF
         ((y++))
         ((z++))
