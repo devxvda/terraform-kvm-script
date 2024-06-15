@@ -1,19 +1,19 @@
-# TFGEN (Script to generate libvirt instance configuration for Terraform)
+# TOFUGEN (Script to generate libvirt instance configuration for OpenTofu)
 
 ## Prerequisites
 
-- [Terraform](https://www.terraform.io/downloads.html)
-- [Terraform Libvirt Provider](https://registry.terraform.io/providers/dmacvicar/libvirt/latest/docs)
+- [OpenTofu](https://opentofu.org/docs/intro/install/)
+- [OpenTofu Libvirt Provider](https://github.com/dmacvicar/terraform-provider-libvirt/releases)
 
 ## Installing Dependencies
 
-### Terraform Libvirt Provider
+### OpenTofu Libvirt Provider
 
-Terraform libvirt provider binaries prebuilt include in this repository. The version of the provider is 0.7.1.
+OpenTofu libvirt provider binaries prebuilt include in this repository. The version of the provider is 0.7.1.
 
 ```bash
 # Clone repo
-git clone https://github.com/Script47ph/terraform-kvm-script.git && cd terraform-kvm-script
+git clone https://github.com/lautanopini/terraform-kvm-script.git && cd terraform-kvm-script
 
 # Create libvirt provider directory
 mkdir -p ~/.local/share/terraform/plugins/registry.terraform.io/dmacvicar/libvirt/0.7.1/linux_amd64
