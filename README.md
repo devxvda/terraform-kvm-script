@@ -15,15 +15,11 @@ OpenTofu libvirt provider binaries prebuilt include in this repository. The vers
 # Clone repo
 git clone https://github.com/lautanopini/terraform-kvm-script.git && cd terraform-kvm-script
 
-# Create libvirt provider directory
-mkdir -p ~/.local/share/terraform/plugins/registry.terraform.io/dmacvicar/libvirt/0.7.1/linux_amd64
-
-# Move libvirt provider binaries to the directory
-mv libvirt-provider/terraform-provider-libvirt ~/.local/share/terraform/plugins/registry.terraform.io/dmacvicar/libvirt/0.7.1/linux_amd64
+# Extract libvirt provider template
+tar -xvf tofu-provider.tar.gz -C ~/
 
 # Add execute permission
-chmod +x ~/.local/share/terraform/plugins/registry.terraform.io/dmacvicar/libvirt/0.7.1/linux_amd64/terraform-provider-libvirt
-chmod +x tfgen.sh
+chmod +x tofugen.sh
 ```
 
 ### New feature:
