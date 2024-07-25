@@ -88,7 +88,7 @@ EOF
     else
       cat <<EOF >>${TMP_DIR}/${HCL_FILE}
     cpu {
-           mode = "host-model"
+           mode = "host-passthrough"
     }
 
 EOF
