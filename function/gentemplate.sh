@@ -10,7 +10,7 @@ terraform {
   required_providers {
     libvirt = {
       source  = "dmacvicar/libvirt"
-      version = "0.7.1"
+      version = "0.8.3"
     }
   }
 }
@@ -75,6 +75,7 @@ resource "libvirt_domain" "${!VM_NAME}" {
     name = "${!VM_NAME}"
     memory = "${!VM_MEMORY}"
     vcpu = "${!VM_VCPUS}"
+    running = false
     # machine = "pc-i440fx-6.2"
 
 EOF
